@@ -3,7 +3,7 @@
     https://jingyan.baidu.com/article/e4d08ffdace06e0fd2f60d39.html
     eg. title install ubuntu 14.04.05 amd64
         root (hd0,0)
-        kernel (hd0,0)/vmlinuz boot=casper iso-scan/filename=/ubuntu-14.04.5-desktop-amd64.iso locale=en_US.UTF-8
+        kernel (hd0,0)/vmlinuz.efi boot=casper iso-scan/filename=/ubuntu-14.04.5-desktop-amd64.iso locale=en_US.UTF-8
         initrd (hd0,0)/initrd.lz
 
         title reboot
@@ -13,3 +13,5 @@
         halt
 3.install wifi driver to ensure you can surf the internet
     https://www.cnblogs.com/CZM-/p/6220169.html 
+    attention: b43-fwcutter -w /lib/firmware (space) (current dir) broadcom-wl-5.100.138/linux/wl_apsta.o
+
