@@ -14,4 +14,11 @@
 3.install wifi driver to ensure you can surf the internet
     https://www.cnblogs.com/CZM-/p/6220169.html 
     attention: b43-fwcutter -w /lib/firmware (space) (current dir) broadcom-wl-5.100.138/linux/wl_apsta.o
-
+    
+4.install chinese input method
+    https://jingyan.baidu.com/article/08b6a591cb06f114a8092209.html
+    sudo apt-get install fcitx libssh2-1
+    sudo dpkg -i sougou_64.deb
+    system setting --> language support --> input method system:fcitx
+    logout and then login
+    
