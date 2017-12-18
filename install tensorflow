@@ -1,0 +1,77 @@
+#https://tensorflow.google.cn
+1. Installing TensorFlow on Ubuntu
+  1.1 Installing with virtualenv
+    (1) Install pip and virtualenv by issuing one of the following commands:
+      $ sudo apt-get install python-pip python-dev python-virtualenv # for python 2.7
+      $ sudo apt-get install python3-pip python3-dev python-virtualenv # for python 3.n
+    (2) Create a virtualenv environment by issuing one of the following commands:
+      $ virtualenv --system-site-packages tarDirectory # for python 2.7
+      $ virtualenv --system-site-package -p python3 targetDirectory # for python 3.n
+      where targetDirectory specifies the top of the virtualenv tree. Our instructions assume that
+      targetDirectory is ~/tensorflow, but you may choose any directory. (ps man virualenv)
+    (3) Activate the virtualenv environment by issuing one of the following commands:
+      $ source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh
+      $ source ~/tensorflow/bin/activate.csh # csh or tcsh
+      The preceding source command should change your prompt to the following:
+      (tensorflow)$
+    (4) Ensure pip >= 8.1 is installed:
+      (tensorflow)$ easy_install -U pip
+    (5) Issue one of the following commands to install TensorFlow in the active virtualenv environment:
+      (tensorflow)$ pip install --upgrade tensorflow # for python 2.7
+      (tensorflow)$ pip3 install --upgrade tensorflow # for python 3.n
+      (tensorflow)$ pip install --upgrade tensorflow-gpu # for python 2.7 and GPU
+      (tensorflow)$ pip3 install --upgrade tensorflow-gpu # for python 3.n and GPU
+      If the preceding command succeeds, skip step 6. If the preceding command fails, perform step 6.
+    (6) (optional) If step 5 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow
+        in the active virtualenv environment by issuing a command of the following format:
+        (tensorflow)$ pip install --upgrade tfBinaryURL # Python 2.7
+        (tensorflow)$ pip3 install --upgrade tfBinaryURL # python 3.n
+        where tfBinaryURL identifies the URL of the TensorFLow Python package. The appropriate value of tfBinaryURL
+        depends on the operating system, Python version, and GPU support. Find the appropriate value for tfBinaryURL
+        for you system here. For example, if you are installing TensorFlow for linux, python 3.4, and cpu-only support,
+        issue the following command to install TensorFlow in the active virtualenv environment:
+        (tensorflow)$ pip3 install --upgrade \
+        https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.4.0-cp34-cp34m-linux_x86_64.whl
+  1.2 Next Steps
+    (1) After installling TensorFlow, validate the installation.
+        Node that you must activate the virtualenv environment each time you use TensorFlow. If the virtualenv
+        environment is not currently activate, invoke one of the following commands:
+        $ source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh
+        $ source ~/tensorflow/bin/activate.csh # csh or tcsh
+        When the virtualenv environment is activate, you may run TensorFlow programs from this shell. Your prompt
+        will become the following to indicate that your tensorflow environment is active:
+        (tensorflow)$
+        When you are done using TensorFlow, you may deactivate the environment by invoking the deactivate function
+        as follows:
+        (tensorflow)$ deactivate
+        The prompt will revert back to you default prompt(as defined by the PS1 environment variable).
+  1.3 Uninstall TensorFlow
+        To uninstall TensorFLow, simply remove the tree you create. For example:
+        $ rm -r targetDirectory
+  1.4 Validate your installation
+      To validate your TensorFlow installation, do the following:
+      #(1). Ensure that you environment is prepared to run TensorFlow programs.
+      #(2). Run a short TensorFlow program.
+      (1) Prepare your environment
+      If you installed on native pip, virtualenv, or Anaconda, then do the following:
+        1. start a termimal.
+        2. If you installed with virtualenv or anaconda, activate your container.
+        3. If you installed TensorFlow source code, navigate to any directory except one containing
+           TensorFlow source code.
+      If you installed through Docker, start a Docker container form which you can run bash. For example:
+        $ docker run -it grc.io/tensorflow/tensorflow bash
+      (2) Run a short TensorFlow program
+      Invoke python from your shell as follows:
+        $ python
+      Enter the following short program inside the python interactive shell:
+        # Python
+        import tensorflow as tf
+        hello = tf.constant('Hello, TensorFlow!')
+        sess = tf.Session()
+        print(sess.run(hello))
+
+      If the system outputs the following, then you are ready to begin writing TensorFlow programs:
+        Hello, TensorFlow!
+      If you are new to TensorFlow, see Getting Started with TensorFlow.
+      
+        
